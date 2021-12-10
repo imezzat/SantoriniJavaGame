@@ -90,13 +90,13 @@ public class Window extends JFrame implements ActionListener, MouseListener {
         for(int i = 0; i < this.labels.length; ++i) {
             for(int j = 0; j < this.labels.length; ++j) {
                 if ((i != 0 || j != 0) && (i != 4 || j != 1) && (i != 0 || j != 3) && (i != 4 || j != 4)) {
-                    this.labels[i][j] = new Tile(new ImageIcon("Layer0.png"));
+                    this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0.png"));
                     this.labels[i][j].setL(new Location(i, j));
                     this.labels[i][j].addMouseListener(this);
                     this.gridPanel.add(this.labels[i][j]);
                 } else {
                     if (i == 0 && j == 0 && getpType1() == 1) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0c.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0c.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP1().getT1());
                         this.labels[i][j].addMouseListener(this);
@@ -104,7 +104,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 0 && j == 0 && getpType1() == 2) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0p.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0p.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP1().getT1());
                         this.labels[i][j].addMouseListener(this);
@@ -112,7 +112,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 4 && j == 1 && getpType1() == 1) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0c.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0c.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP1().getT2());
                         this.labels[i][j].addMouseListener(this);
@@ -120,7 +120,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 4 && j == 1 && getpType1() == 2) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0p.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0p.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP1().getT2());
                         this.labels[i][j].addMouseListener(this);
@@ -128,7 +128,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 0 && j == 3 && getpType2() == 1) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0cc.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0cc.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP2().getT1());
                         this.labels[i][j].addMouseListener(this);
@@ -136,7 +136,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 0 && j == 3 && getpType2() == 2) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0pp.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0pp.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP2().getT1());
                         this.labels[i][j].addMouseListener(this);
@@ -144,7 +144,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 4 && j == 4 && getpType2() == 1) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0cc.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0cc.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP2().getT2());
                         this.labels[i][j].addMouseListener(this);
@@ -152,7 +152,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
 
                     if (i == 4 && j == 4 && getpType2() == 2) {
-                        this.labels[i][j] = new Tile(new ImageIcon("Layer0pp.png"));
+                        this.labels[i][j] = new Tile(new ImageIcon("Images/Layer0pp.png"));
                         this.labels[i][j].setL(new Location(i, j));
                         this.labels[i][j].setP(a.getP2().getT2());
                         this.labels[i][j].addMouseListener(this);
@@ -304,7 +304,7 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                  *  Update Image to view new Stack size
                  */
                 else {
-                    this.labels[tempLabel.getL().getY()][tempLabel.getL().getX()].setIcon(new ImageIcon("Layer" + this.labels[tempLabel.getL().getY()][tempLabel.getL().getX()].getLayer() + ".png"));
+                    this.labels[tempLabel.getL().getY()][tempLabel.getL().getX()].setIcon(new ImageIcon("Images/Layer" + this.labels[tempLabel.getL().getY()][tempLabel.getL().getX()].getLayer() + ".png"));
                 }
 
                 if (this.getAdapter().getB().getTurn() == this.getAdapter().getB().getP1()) {
@@ -334,10 +334,10 @@ public class Window extends JFrame implements ActionListener, MouseListener {
                     }
                 }
 
-                this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setIcon(new ImageIcon("Layer" + this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].getLayer() + ".png"));
+                this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setIcon(new ImageIcon("Images/Layer" + this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].getLayer() + ".png"));
                 this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setP((Piece)null);
                 this.getAdapter().getB().move(piece, tempLabel.getL());
-                this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setIcon(new ImageIcon("Layer" + this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].getLayer() + c + s + ".png"));
+                this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setIcon(new ImageIcon("Images/Layer" + this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].getLayer() + c + s + ".png"));
                 this.labels[piece.getCurrentLocation().getY()][piece.getCurrentLocation().getX()].setP(piece);
 
                 if (this.getAdapter().getB().isGameOver()) {
