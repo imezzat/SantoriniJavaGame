@@ -12,74 +12,77 @@ import eg.edu.guc.santorini.gui.Window;
 import eg.edu.guc.santorini.players.Player;
 import eg.edu.guc.santorini.tiles.Piece;
 import eg.edu.guc.santorini.utilities.Location;
-
-import javax.swing.*;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 public class Adapter {
-    private Board b;
-    private Player p1 = new Player(Window.getS1(), Window.getpType1());
-    private Player p2 = new Player(Window.getS2(), Window.getpType2());
 
-    public Adapter() {
-        Board b = new Board(this.p1, this.p2);
-        this.setB(b);
-    }
+  private Board b;
+  private Player p1 = new Player(Window.getS1(), Window.getpType1());
+  private Player p2 = new Player(Window.getS2(), Window.getpType2());
 
-    public boolean canMove(Piece piece, Location newLocation) {
-        return this.canMove(piece, newLocation) && !piece.hasJustMoved() && (this.getB().getTurn().getT1().equals(piece) || this.getB().getTurn().getT2().equals(piece)) && !this.getB().getOtherPiece(piece).hasJustMoved() && !this.getB().isGameOver();
-    }
+  public Adapter() {
+    Board b = new Board(this.p1, this.p2);
+    this.setB(b);
+  }
 
-    public ArrayList<Location> possiblePlacements(Tile t) {
-        ArrayList<Location> l = new ArrayList();
-        if (this.b.getP1().getT1().equals(t.getP())) {
-            l = this.b.getP1().getT1().possiblePlacements();
-        }
+  public static void main(String[] args) {
+    new Adapter();
+  }
 
-        if (this.b.getP1().getT2().equals(t.getP())) {
-            l = this.b.getP1().getT2().possiblePlacements();
-        }
+  public boolean canMove(Piece piece, Location newLocation) {
+    return this.canMove(piece, newLocation) && !piece.hasJustMoved() && (
+        this.getB().getTurn().getT1().equals(piece) || this.getB().getTurn().getT2()
+            .equals(piece)) && !this.getB().getOtherPiece(piece).hasJustMoved() && !this.getB()
+        .isGameOver();
+  }
 
-        if (this.b.getP2().getT1().equals(t.getP())) {
-            l = this.b.getP2().getT1().possiblePlacements();
-        }
+  public ArrayList<Location> possiblePlacements(Tile t) {
+//        ArrayList<Location> l = new ArrayList();
+      if (this.b.getP1().getT1().equals(t.getP())) {
+          return this.b.getP1().getT1().possiblePlacements();
+      }
 
-        if (this.b.getP2().getT2().equals(t.getP())) {
-            l = this.b.getP2().getT2().possiblePlacements();
-        }
+      if (this.b.getP1().getT2().equals(t.getP())) {
+          return this.b.getP1().getT2().possiblePlacements();
+      }
 
-        return l;
-    }
+      if (this.b.getP2().getT1().equals(t.getP())) {
+          return this.b.getP2().getT1().possiblePlacements();
+      }
 
-    public void move(Piece piece, Tile t) throws InvalidMoveException {
-        this.getB().move(piece, t.getL());
-        new Tile(new ImageIcon("Hammer.png"));
-    }
+      if (this.b.getP2().getT2().equals(t.getP())) {
+          return this.b.getP2().getT2().possiblePlacements();
+      }
+    return null;
+  }
 
-    public void setB(Board b) {
-        this.b = b;
-    }
+  public void move(Piece piece, Tile t) throws InvalidMoveException {
+    this.getB().move(piece, t.getL());
+    new Tile(new ImageIcon("Hammer.png"));
+  }
 
-    public Board getB() {
-        return this.b;
-    }
+  public Board getB() {
+    return this.b;
+  }
 
-    public Player getP1() {
-        return this.p1;
-    }
+  public void setB(Board b) {
+    this.b = b;
+  }
 
-    public void setP1(Player p1) {
-        this.p1 = p1;
-    }
+  public Player getP1() {
+    return this.p1;
+  }
 
-    public Player getP2() {
-        return this.p2;
-    }
+  public void setP1(Player p1) {
+    this.p1 = p1;
+  }
 
-    public void setP2(Player p2) {
-        this.p2 = p2;
-    }
-    public static void main(String[] args){
-        new Adapter();
-    }
+  public Player getP2() {
+    return this.p2;
+  }
+
+  public void setP2(Player p2) {
+    this.p2 = p2;
+  }
 }
