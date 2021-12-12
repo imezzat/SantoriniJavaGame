@@ -10,6 +10,7 @@ A simple 2 player game with GUI (Java Swing) employing OOP principles & Adapter 
 -  a piece can move to a cell having the same level or one level higher (i.e a piece on level 1 can move to a cell with level 2)
 -  The first player to have a piece on a cell with 4 tiles wins the game.
 -  if a player has no possible moves, the other player moves the game.
+-  A cell with level 5 is disabled (can't be moved to or built upon).
 
 ### How to use the Files:
 run the main method in the  eg.edu.guc.santorini.gui.Window class or by creating an instance of class window (new window())
